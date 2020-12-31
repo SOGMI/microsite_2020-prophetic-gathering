@@ -24,6 +24,7 @@
 			</div>
 		</div>
 	</section>
+	{{ $pageUrl := urls.Parse (print .Permalink) }}
 	{{ range .Params.sections }}
 	<section class="section">
 		<div class="container">
@@ -60,11 +61,12 @@
 					</figure>
 				</div>
 				<div class="column" style="padding-top: 0; padding-bottom: 0">
+
 					<iframe
 						class="live-chat is-hidden-mobile"
 						width="100%"
 						height="auto"
-						src="https://www.youtube.com/live_chat?v={{ $videoIdString }}&embed_domain=prophetic-school-2020.sogmi.org"
+						src="https://www.youtube.com/live_chat?v={{ $videoIdString }}&embed_domain={{ $pageUrl.Host | safeURL }}"
 						frameborder="0"
 					>
 					</iframe>
