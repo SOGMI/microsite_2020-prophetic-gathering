@@ -34,14 +34,25 @@
 		{{ with .subtitle }}
 			<div class="subtitle">{{ . }}</div>
 		{{ end }}
+		{{ $downloadUrl := .downloadUrl }}
 		{{ with .videoUrl }}
 			<div class="field" style="margin-bottom: 2.5rem">
-				<a
-					href="{{ . }}"
-					target="_blank"
-					class="button is-small is-primary"
-					>Watch On Youtube</a
-				>
+				<div class="buttons">
+					<a
+						href="{{ . }}"
+						target="_blank"
+						class="button is-small is-primary"
+						>Watch On Youtube</a
+					>
+					{{ with $downloadUrl }}
+					<a
+						href="{{ . }}"
+						target="_blank"
+						class="button is-small is-dark"
+						>Download This Video</a
+					>
+					{{ end }}
+				</div>
 			</div>
 			{{ $videoUrl := urls.Parse . }} {{ $videoId := $videoUrl.Query.v }}
 			{{ $videoIdString := replace (replace (print $videoId) "[" "") "]" "" }}
