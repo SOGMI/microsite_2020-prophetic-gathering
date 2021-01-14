@@ -28,11 +28,13 @@
 	{{ range .Params.sections }}
 	<section class="section">
 		<div class="container">
-			{{ with .title }}
+		{{ with .title }}
 			<h2 class="title">{{ . }}</h2>
-			{{ end }} {{ with .subtitle }}
-			<div class="subtitle">Starts April 16, 2020 at 7:00 PM CST</div>
-			{{ end }} {{ with .videoUrl }}
+		{{ end }}
+		{{ with .subtitle }}
+			<div class="subtitle">{{ . }}</div>
+		{{ end }}
+		{{ with .videoUrl }}
 			<div class="field" style="margin-bottom: 2.5rem">
 				<a
 					href="{{ . }}"
@@ -79,7 +81,7 @@
 					>
 				</div>
 			</div>
-			{{ end }}
+		{{ end }}
 		</div>
 	</section>
 	{{ end }}
